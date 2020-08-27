@@ -17,5 +17,6 @@ constructor (public auth : AuthService, public navCtrl: NavController){}
             
         
     }
+    return true;
 }
 }

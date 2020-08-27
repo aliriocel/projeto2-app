@@ -27,6 +27,10 @@ const routes: Routes = [
     path: 'logoff',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule),
     canActivate : [AuthGuardService]
+  },
+  {
+    path: 'noticias-new',
+    loadChildren: () => import('./noticias-new/noticias-new.module').then( m => m.NoticiasNewPageModule)
   }
 ];
 

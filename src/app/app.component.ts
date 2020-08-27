@@ -19,6 +19,11 @@ export class AppComponent implements OnInit {
       url: 'noticias-list',
       icon: 'cube'
     },
+    {
+      title: 'Nova Noticia',
+      url: 'noticias-new',
+      icon: 'cube'
+    },
 
     {
       title: 'Sair',
