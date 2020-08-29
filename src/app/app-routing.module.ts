@@ -31,6 +31,18 @@ const routes: Routes = [
   {
     path: 'noticias-new',
     loadChildren: () => import('./noticias-new/noticias-new.module').then( m => m.NoticiasNewPageModule)
+  },
+  {
+    path: 'noticias-update/:id',
+    loadChildren: () => import('./noticias-update/noticias-update.module').then( m => m.NoticiasUpdatePageModule)
+  },
+  {
+    path: 'noticias-delete/:id',
+    loadChildren: () => import('./noticias-delete/noticias-delete.module').then( m => m.NoticiasDeletePageModule)
+  },
+  {
+    path: 'noticias-upload/:id',
+    loadChildren: () => import('./noticias-upload/noticias-upload.module').then( m => m.NoticiasUploadPageModule)
   }
 ];
 

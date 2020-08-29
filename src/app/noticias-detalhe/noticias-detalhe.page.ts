@@ -3,6 +3,7 @@ import { NOTICIAS } from 'src/environments/mock-noticias';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Noticia } from 'src/model/noticia';
 import { NoticiaService } from 'src/services/noticia.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-noticias-detalhe',
@@ -15,7 +16,8 @@ noticia : Noticia = new Noticia();
 
 constructor(private actRoute : ActivatedRoute,
   private router : Router,
-  private noticiaServ : NoticiaService) { }
+  private noticiaServ : NoticiaService,
+  private navCtrl : NavController) { }
   
   
     ngOnInit() {
@@ -41,4 +43,15 @@ constructor(private actRoute : ActivatedRoute,
     })
   }
 
+  atualizar(noticiaObj){
+    this.navCtrl.navigateForward(['noticias-update',noticiaObj.id]);
+  }
+
+  deletar(noticiaObj){
+    this.navCtrl.navigateForward(['noticias-delete',noticiaObj.id]);
+  }
+
+  upload(noticiaObj){
+    this.navCtrl.navigateForward(['noticias-upload',noticiaObj.id]);
+  }
 }

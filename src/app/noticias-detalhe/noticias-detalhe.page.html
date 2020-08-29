@@ -11,16 +11,22 @@
 
 <ion-content>
 
-<ion-card>
-  <img src="{{noticia.imagem}}" />
-  <ion-card-header>
-    
-    <ion-card-title>{{noticia.titulo}}</ion-card-title>
-  </ion-card-header>
-  <ion-card-content>
-{{noticia.conteudo}}
-  </ion-card-content>
-</ion-card>
+  <ion-card>
+    <img src="{{noticia.imagem}}" />
+    <ion-button expand="full" color="primary"
+     (click)="upload(noticia)">Atualzar Foto</ion-button>
+    <ion-card-header>
 
+      <ion-card-title>{{noticia.titulo}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{noticia.conteudo}}
+    </ion-card-content>
+  </ion-card>
+  <ion-button expand="full" color="warning" 
+  (click)="atualizar(noticia)">Atualizar</ion-button>
+
+  <ion-button expand="full" color="danger" 
+  (click)="deletar(noticia)">Excluir</ion-button>
 
 </ion-content>
