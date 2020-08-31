@@ -4,7 +4,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    
+
     <ion-title>Lista de Notícias</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -18,7 +18,7 @@
 
     <ion-item *ngFor="let noticia of noticias" (click)="buscaPorId(noticia)">
       <ion-avatar slot="start">
-        <img src="{{noticia.imagem}}">
+        <img src="{{noticiaServ.getImage(noticia.id)}}">
       </ion-avatar>
       <ion-label>
         <h2>{{noticia.titulo}}</h2>
@@ -26,4 +26,12 @@
       </ion-label>
     </ion-item>
   </ion-list>
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content 
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
 </ion-content>

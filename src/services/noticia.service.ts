@@ -41,13 +41,13 @@ export class NoticiaService {
     return this.http.delete<any>(`${this.api}/${obj.id}`);
   }
 
-  fileUpload(file, fileName) {
+  fileUpload(file, fileName) : Promise<any> {
 
     const contentType = file.type;
 
     //gera o nome do arquivo
     let name: string = file.name;
-    let arrayFileName = name.split(',');
+    let arrayFileName = name.split('.');
     let finalName = fileName + '.' + arrayFileName[1];
 
     const params = {
@@ -58,15 +58,14 @@ export class NoticiaService {
       contentType: contentType
     };
 
-    const Bucket = new S3(this.s3Config);
-    Bucket.upload(params, function (err, data) {
-      if (err) {
-        console.log('ERRO');
-        console.log(err);
-      } else {
-        console.log('file Uploaded.', data);
+    const bucket = new S3(this.s3Config);
 
-      }
+    return bucket.upload(params).promise().then(data=>{
+      return data;
     })
+  }
+
+  getImage(id) {
+    return `${environment.bucketNoticia}/noticia${id}.jpg`;
   }
 }

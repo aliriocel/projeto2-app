@@ -21,14 +21,21 @@ constructor(private actRoute : ActivatedRoute,
   
   
     ngOnInit() {
+      
+    }
+
+    ionViewWillEnter(){
+      this.noticia.imagem = null;
       this.actRoute.paramMap.subscribe(resp=>{
   
         let id = resp.get('id');
         this.noticiaServ.noticiaId(id).subscribe(data=>{
           this.noticia = data as unknown as Noticia;
+          this.noticia.imagem = this.noticiaServ.getImage(id);
         })
       })
     }
+  
 
   getNoticias(id){
 

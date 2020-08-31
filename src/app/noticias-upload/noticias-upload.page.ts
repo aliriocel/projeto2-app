@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NoticiaService } from 'src/services/noticia.service';
 import { Noticia } from 'src/model/noticia';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-noticias-upload',
@@ -11,9 +10,9 @@ import { environment } from 'src/environments/environment';
 })
 export class NoticiasUploadPage implements OnInit {
 
-  tofile;
+  toFile;
   noticia: Noticia = new Noticia();
-  location : string = "";
+  location: string = null;
 
   constructor(private actRoute: ActivatedRoute,
     private noticiaServ: NoticiaService) { }
@@ -25,25 +24,23 @@ export class NoticiasUploadPage implements OnInit {
       let id = resp.get('id');
       this.noticiaServ.noticiaId(id).subscribe(data => {
         this.noticia = data as unknown as Noticia;
-        this.getImage();
+        this.location = this.noticiaServ.getImage(id);
       });
     });
 
   }
 
-  getImage(){
-    this.location = `${environment.bucketNoticia}/noticia${this.noticia.id}.jpg`;
+  submit() {
+    const file = this.toFile.item(0);
+    this.noticiaServ.fileUpload(file, "noticia" + this.noticia.id).then(data => {
+      this.location = data.Location;
+    });
   }
 
-  submit(event){
-    
-    const file = this.tofile.item(0);
-    this.noticiaServ.fileUpload(file,"noticia"+this.noticia.id);
-    this.getImage();
-  }
+  onChange(event) {
+    this.toFile = event.target.files;
+    this.location = null;
 
-  onChange(event){
-    this.tofile = event.target.files;
-
+    this.submit();
   }
 }

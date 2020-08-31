@@ -1,13 +1,15 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>noticias-upload</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>noticias upload</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   
 <ion-input type="file" (change)="onChange($event)"></ion-input>
-<ion-button (click)="submit()">Enviar</ion-button>
 
 <img src="{{location}}" width="100%"/>
 </ion-content>
