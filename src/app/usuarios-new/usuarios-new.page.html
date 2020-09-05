@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Cadastrar Usuário</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <form [formGroup]="formGroup">
+  <ion-item>
+    <ion-label position="floating">Nome</ion-label>
+    <ion-input type="text" formControlName="nome"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Cidade</ion-label>
+    <ion-textarea rows="6" formControlName="cidade"></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Estado</ion-label>
+    <ion-textarea rows="6" formControlName="estado"></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">E-mail</ion-label>
+    <ion-textarea rows="6" formControlName="email"></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Foto</ion-label>
+    <ion-textarea rows="3" formControlName="foto"></ion-textarea>
+
+  </ion-item>
+
+  <ion-button (click)="cadastrar()" expand="full" color="primary" >Cadastrar</ion-button>
+  <p *ngIf="msg !== null">{{msg}}</p>
+</form>
+</ion-content>

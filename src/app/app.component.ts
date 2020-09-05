@@ -17,14 +17,23 @@ export class AppComponent implements OnInit {
     {
       title: 'Noticias',
       url: 'noticias-list',
-      icon: 'cube'
+      icon: 'newspaper'
     },
     {
       title: 'Nova Noticia',
       url: 'noticias-new',
-      icon: 'cube'
+      icon: 'add-circle'
     },
-
+    {
+      title: 'Usuários',
+      url: 'usuarios-list',
+      icon: 'person'
+    },
+    {
+      title: 'Cadastrar Usuários',
+      url: 'usuarios-new',
+      icon: 'person-add'
+    },
     {
       title: 'Sair',
       url: 'logoff',

@@ -27,7 +27,6 @@ export class NoticiasUploadPage implements OnInit {
         this.location = this.noticiaServ.getImage(id);
       });
     });
-
   }
 
   submit() {

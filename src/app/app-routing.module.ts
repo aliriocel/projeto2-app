@@ -43,6 +43,31 @@ const routes: Routes = [
   {
     path: 'noticias-upload/:id',
     loadChildren: () => import('./noticias-upload/noticias-upload.module').then( m => m.NoticiasUploadPageModule)
+  },
+  {
+    path: 'usuarios-list',
+    loadChildren: () => import('./usuarios-list/usuarios-list.module').then( m => m.UsuariosListPageModule),
+    canActivate : [AuthGuardService]
+  },
+  {
+    path: 'usuarios-new',
+    loadChildren: () => import('./usuarios-new/usuarios-new.module').then( m => m.UsuariosNewPageModule)
+  },
+  {
+    path: 'usuarios-detalhe/:id',
+    loadChildren: () => import('./usuarios-detalhe/usuarios-detalhe.module').then( m => m.UsuariosDetalhePageModule)
+  },
+  {
+    path: 'usuarios-update/:id',
+    loadChildren: () => import('./usuarios-update/usuarios-update.module').then( m => m.UsuariosUpdatePageModule)
+  },
+  {
+    path: 'usuarios-upload/:id',
+    loadChildren: () => import('./usuarios-upload/usuarios-upload.module').then( m => m.UsuariosUploadPageModule)
+  },
+  {
+    path: 'usuarios-delete/:id',
+    loadChildren: () => import('./usuarios-delete/usuarios-delete.module').then( m => m.UsuariosDeletePageModule)
   }
 ];
 

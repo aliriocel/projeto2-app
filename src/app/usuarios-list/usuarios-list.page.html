@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>Lista de Usuários</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+
+  <ion-list>
+    <ion-list-header>
+      Usuários Cadastrados
+    </ion-list-header>
+
+    <ion-item *ngFor="let usuario of usuarios" (click)="buscaPorId(usuario)"  class="custom" >
+      <ion-avatar slot="start">
+        <img src="{{usuarioServ.getImage(usuario.id)}}">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{usuario.nome}}</h2>
+        <p>{{usuario.cidade}}</p>
+        <p>{{usuario.email}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content 
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>

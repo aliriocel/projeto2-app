@@ -14,6 +14,7 @@ import { AuthGuardService } from 'src/services/auth-guard.service';
 import { AuthService } from 'src/services/auth.services';
 import { NoticiaService } from 'src/services/noticia.service';
 import { TemplateService } from 'src/services/templates';
+import { UsuarioService } from 'src/services/usuario.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,6 +33,7 @@ import { TemplateService } from 'src/services/templates';
     AuthGuardService,
     AuthService,
     NoticiaService,
+    UsuarioService,
     TemplateService
   ],
   bootstrap: [AppComponent]

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NOTICIAS } from 'src/environments/mock-noticias';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Noticia } from 'src/model/noticia';
 import { NoticiaService } from 'src/services/noticia.service';
@@ -37,18 +36,7 @@ constructor(private actRoute : ActivatedRoute,
     }
   
 
-  getNoticias(id){
-
-    let noticias : Noticia[] = NOTICIAS;
-    
-    noticias.forEach(n=>{
-      if(n.id === id){
-        this.noticia = n;
-
-      }
-
-    })
-  }
+  
 
   atualizar(noticiaObj){
     this.navCtrl.navigateForward(['noticias-update',noticiaObj.id]);

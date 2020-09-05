@@ -10,14 +10,14 @@ import { TemplateService } from 'src/services/templates';
 })
 export class NoticiasNewPage implements OnInit {
 
-  formGroup : FormGroup;
-  msg : string = null;
+  formGroup: FormGroup;
+  msg: string = null;
 
-  
 
-  constructor(private noticiaServ : NoticiaService,
-    private formBuilder : FormBuilder,
-    public templateServ: TemplateService) { 
+
+  constructor(private noticiaServ: NoticiaService,
+    private formBuilder: FormBuilder,
+    public templateServ: TemplateService) {
     this.iniciarForm();
   }
 
@@ -33,22 +33,18 @@ export class NoticiasNewPage implements OnInit {
     })
   }
 
-  cadastrar(){
-    
-    this.templateServ.loading.then(load =>{
+  cadastrar() {
+
+    this.templateServ.loading.then(load => {
       load.present();
 
-      this.noticiaServ.novo(this.formGroup.value).subscribe(data=>{
-        
+      this.noticiaServ.novo(this.formGroup.value).subscribe(data => {
+
         this.formGroup.reset();
         load.dismiss();
 
         this.templateServ.exibirMensagem("Cadastrado com Sucesso");
       })
     })
-    
-    
-   
-    
   }
 }
